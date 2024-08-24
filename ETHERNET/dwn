@@ -1,0 +1,14 @@
+#!/bin/bash
+
+case $0 in
+/*)     D=`dirname $0`;;
+*/*)    D=$PWD/`dirname $0`;;
+*)      D=$PWD;;
+esac
+
+BINFILE=$D/cmake-build-debug/stm32f4-olimexe407.elf
+
+openocd \
+	-c "source [find interface/stlink-v2.cfg]" \
+	-c "source [find target/stm32f4x_stlink.cfg]" \
+	-c "init; reset halt; flash write_image erase $BINFILE; reset; exit"

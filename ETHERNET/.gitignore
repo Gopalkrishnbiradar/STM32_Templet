@@ -1,0 +1,16 @@
+/Debug
+
+###################
+# Ignore binaries #
+###################
+*bin
+*.elf
+*.map
+*.o
+/common/build/
+/.idea
+/cmake-build-debug
+######################
+# Netbeans           #
+######################
+
